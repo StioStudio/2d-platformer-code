@@ -43,7 +43,7 @@ function doKeyDown(evt){
             break;
     }
 }
-
+//info
 
 function draw() {
     ctx.clearRect(0, 0, screenWidth, screenHeight);
