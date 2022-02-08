@@ -27,22 +27,38 @@ setInterval(() => {
     
 }, 10);
 
-
-function doKeyDown(evt){
-    switch (evt.keyCode) {
-        case 38:
+document.addEventListener("keydown", (event) => {
+    switch(event.keyCode) {
+		case 38:
             if (y >= 500) {
                 yvel = -7;
             }
             break;
-        case 37: 
+        case 37:
             xvel -= 1;
             break;
-        case 39:  
+        case 39:
             xvel += 1;
             break;
-    }
-}
+    };
+});
+
+document.addEventListener("keyup", (event) => {
+    switch(event.keyCode) {
+        case 37:
+            if(xvel < 0) { 
+                xvel = 0;
+            }
+            break;
+        case 39:
+            if(xvel > 0) {
+                xvel = 0;
+            }
+            break;
+    };
+});
+
+
 //info
 
 function draw() {
@@ -50,5 +66,3 @@ function draw() {
     ctx.fillRect(x, y, 40, 40);
 }
 init();
-
-window.addEventListener('keydown',doKeyDown,true);
