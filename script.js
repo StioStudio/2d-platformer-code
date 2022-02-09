@@ -1,4 +1,7 @@
 /** @type {HTMLCanvasElement} */
+import{
+    Trigger
+} from "https://unpkg.com/leopard@^1/dist/index.esm.js";
 var x = 0
 var y = 200
 var yvel = -5
@@ -43,7 +46,6 @@ function doKeyDown(evt){
             break;
     }
 }
-//info
 
 function draw() {
     ctx.clearRect(0, 0, screenWidth, screenHeight);
