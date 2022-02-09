@@ -1,7 +1,4 @@
 /** @type {HTMLCanvasElement} */
-import{
-    Trigger
-} from "https://unpkg.com/leopard@^1/dist/index.esm.js";
 var x = 0
 var y = 200
 var yvel = -5
@@ -9,7 +6,7 @@ var xvel = 5
 const ThreeD_render = document.getElementById("canvas");
 const ctx = ThreeD_render.getContext("2d");
 ThreeD_render.width = window.innerWidth - 40
-ThreeD_render.height = window.innerHeight - 20
+ThreeD_render.height = window.innerHeight - 200
 const screenWidth = ThreeD_render.width;
 const screenHeight = ThreeD_render.height;
 ctx.fillStyle = "#f000f0";
@@ -24,17 +21,25 @@ setInterval(() => {
     x += xvel;
     yvel += 0.1
     xvel *= 0.95
-    if (y >= 500){
-        y = 500
+    if (y >= 400){
+        y = 400
+        yvel = 0
     }
-    
-}, 10);
+    if (x <= 0) {
+        x = 0
+        xvel = 0
+    }
+    if (x >= 600){
+        x = 600
+        xvel = 0
+    }
 
+}, 10);
 
 function doKeyDown(evt){
     switch (evt.keyCode) {
         case 38:
-            if (y >= 500) {
+            if (y >= 400) {
                 yvel = -7;
             }
             break;
@@ -46,6 +51,7 @@ function doKeyDown(evt){
             break;
     }
 }
+
 
 function draw() {
     ctx.clearRect(0, 0, screenWidth, screenHeight);
