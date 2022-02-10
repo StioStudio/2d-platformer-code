@@ -9,6 +9,8 @@ ThreeD_render.width = window.innerWidth - 40
 ThreeD_render.height = window.innerHeight - 200
 var screenWidth = ThreeD_render.width;
 var screenHeight = ThreeD_render.height;
+var RectW = 80
+var RectH = 80
 ctx.fillStyle = "#f000f0";
 
 
@@ -21,20 +23,20 @@ setInterval(() => {
     x += xvel;
     yvel += 0.1
     xvel *= 0.95
-    if (y >= screenHeight - 40){
-        y = screenHeight - 40
+    if (y >= screenHeight - RectH){
+        y = screenHeight - RectH
         yvel = 0
     }
     if (y <= 0){
-        y = 0
+        y = 1
         yvel = 0
     }
     if (x <= 0) {
         x = 0
         xvel = 0
     }
-    if (x >= screenWidth - 40){
-        x = screenWidth - 40
+    if (x >= screenWidth - RectW){
+        x = screenWidth - RectW
         xvel = 0
     }
 
@@ -55,7 +57,7 @@ setInterval(() => {
 function doKeyDown(evt){
     switch (evt.keyCode) {
         case 38:
-            if (y >= screenHeight - 40) {
+            if (y >= screenHeight - RectH) {
                 yvel = -7;
             }
             break;
@@ -71,7 +73,7 @@ function doKeyDown(evt){
 
 function draw() {
     ctx.clearRect(0, 0, screenWidth, screenHeight);
-    ctx.fillRect(x, y, 40, 40);
+    ctx.fillRect(x, y, RectW, RectH);
 }
 init();
 
