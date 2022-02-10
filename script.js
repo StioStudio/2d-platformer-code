@@ -9,8 +9,8 @@ ThreeD_render.width = window.innerWidth - 40
 ThreeD_render.height = window.innerHeight - 200
 var screenWidth = ThreeD_render.width;
 var screenHeight = ThreeD_render.height;
-var RectW = 80
-var RectH = 80
+var RectW = 50
+var RectH = 50
 ctx.fillStyle = "#f000f0";
 
 
